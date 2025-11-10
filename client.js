@@ -1,8 +1,8 @@
 // تحديد رابط الخادم (backend) حسب البيئة
 const backendUrl =
   window.location.hostname === "localhost" || window.location.hostname === "192.168.43.150"
-    ? "http://localhost:3002" // البورت المحلي للسيرفر
-    : "http://192.168.43.150:3002"; // للسيرفر على الشبكة المحلية
+    ? "http://localhost:3002"
+    : "https://appeasedly-nonobedient-blondell.ngrok-free.dev"; // <-- تم وضع رابط ngrok
 
 // إنشاء اتصال مع السيرفر عبر Socket.io
 const socket = io(backendUrl);
