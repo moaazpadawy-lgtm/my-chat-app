@@ -1,2 +1,2 @@
-# my-chat-app
-Description (optional)
+# LAMMETNA CHAT
+A simple real-time chat application.
