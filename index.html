@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تطبيق الدردشة الاحترافي</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts: Tajawal -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <!-- شاشة اختيار اسم المستخدم -->
+  <div id="username-modal" class="modal-overlay">
+    <div class="modal-content">
+      <h2>مرحباً بك في الدردشة</h2>
+      <form id="username-form">
+        <input id="username-input" type="text" placeholder="ادخل اسمك للانضمام..." required autocomplete="off">
+        <button type="submit">انضم الآن</button>
+      </form>
+    </div>
+  </div>
+  <div id="chat-container" class="chat-container">
+    <aside class="sidebar">
+      <h2>المستخدمون المتصلون</h2>
+      <ul id="users-list"></ul>
+      <button id="logout-btn">تسجيل الخروج</button>
+    </aside>
+
+    <main class="chat-main">
+      <header class="chat-header">
+        <h2>غرفة الدردشة</h2>
+        <!-- زر القائمة للموبايل -->
+        <button id="menu-btn" class="menu-btn">☰</button>
+      </header>
+      <div id="chat-box" class="chat-box"></div>
+      <form id="message-form" class="message-form">
+        <input id="message-input" autocomplete="off" placeholder="اكتب رسالتك هنا..." />
+        <button type="submit">إرسال</button>
+      </form>
+    </main>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>

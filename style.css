@@ -1,0 +1,190 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Cairo', sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f5f6fa;
+}
+
+/* تصميم شاشة اختيار الاسم المنبثقة */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-content h2 {
+  margin-bottom: 20px;
+  color: #2f3640;
+}
+
+/* إخفاء شاشة الدردشة في البداية */
+.chat-container {
+  /* سيتم تغييرها إلى 'flex' عبر الجافاسكريبت بعد اختيار الاسم */
+  display: none; 
+  height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background: #2f3640;
+  color: #f5f6fa;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+}
+
+#users-list {
+  list-style: none;
+  padding: 0;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+#users-list li {
+  padding: 8px;
+  border-bottom: 1px solid #444;
+}
+
+#logout-btn {
+  padding: 10px;
+  background: #e84118;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.chat-main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.chat-main.sidebar-open {
+  filter: blur(2px) brightness(0.7);
+}
+
+.menu-btn {
+  display: none; /* إخفاء الزر على الشاشات الكبيرة */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.chat-header {
+  background: #718093;
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-box {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background: #dcdde1;
+}
+
+.message {
+  max-width: 60%;
+  margin: 10px 0;
+  padding: 10px 15px;
+  border-radius: 15px;
+  position: relative;
+  clear: both;
+}
+
+/* تصميم رسائل النظام */
+.system-message {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  font-size: 0.9em;
+  margin: 10px 0;
+}
+
+.my-message {
+  background: #00a8ff;
+  color: #fff;
+  margin-left: auto;
+}
+
+.other-message {
+  background: #f5f6fa;
+  color: #2f3640;
+  margin-right: auto;
+}
+
+.message-form {
+  display: flex;
+  padding: 15px;
+  background: #f5f6fa;
+}
+
+#message-input {
+  flex-grow: 1;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.message-form button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  border-radius: 20px;
+  border: none;
+  background: #00a8ff;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* --- كود الموبايل --- */
+/* للشاشات اللي عرضها 768 بكسل أو أقل */
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block; /* إظهار الزر على الموبايل */
+  }
+
+  .sidebar {
+    position: fixed; /* تغيير موضع الشريط الجانبي */
+    top: 0;
+    right: 0;
+    height: 100%;
+    z-index: 1200;
+    transform: translateX(100%); /* إخفاؤه خارج الشاشة يمينًا */
+    transition: transform 0.3s ease-in-out;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+  }
+  .sidebar.open {
+    transform: translateX(0); /* إظهار الشريط عند إضافة كلاس 'open' */
+  }
+}
