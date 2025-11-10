@@ -15,7 +15,7 @@ const io = new Server(server, {
   }
 });
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002; // تم تغيير البورت إلى 3002
 
 // لتخزين المستخدمين المتصلين (id => name)
 const users = {};
